@@ -8,7 +8,7 @@ class Sex(models.TextChoices):
     DEFAULT = "Not Informed"
 
 
-class Pet(models.Model):
+class Pet (models.Model):
     name = models.CharField(max_length=50)
     age = models.IntegerField()
     weight = models.FloatField()
@@ -20,4 +20,6 @@ class Pet(models.Model):
         "groups.Group",
         on_delete=models.CASCADE,
         related_name="pets")
+
+    traits = models.ManyToManyField("traits.Trait", related_name = "pets")
 
